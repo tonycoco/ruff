@@ -120,7 +120,7 @@ pub(crate) fn order_imports<'a>(
             ))
             .chain(lazy_straight_imports.into_iter().map(Import))
             .collect()
-    } else if settings.force_sort_within_sections {
+    } else if settings.force_sort_within_sections || settings.lexicographical {
         let ordered_imports = straight_imports
             .map(|(alias, comments)| {
                 let first_index = comments.first_index.unwrap_or_default();
